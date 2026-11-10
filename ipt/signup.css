@@ -1,0 +1,81 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Bitcount Grid Double', monospace;
+}
+
+body {
+    background-color: white;
+    background-attachment: fixed;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat; 
+}
+
+.container {
+    display: flex;
+    height: 100vh;
+}
+
+.main {
+    flex: 1;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    height: 100vh;
+}
+
+.form-container {
+    background: rgba(255, 255, 255, 0.263);
+    backdrop-filter: blur(4px);
+    padding: 30px;
+    border-radius: 13px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.261);
+    width: 25%;
+}
+
+.grid-form {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 12px;
+}
+
+.form-group {
+     display: flex;
+     flex-direction: column; 
+     gap: 5px; 
+     margin-bottom: 10px; 
+}
+
+input { 
+     padding: 10px; 
+     border: 1.4px solid black; 
+     border-radius: 7px;
+     font-family: 'Arial', sans-serif;
+     font-weight: bold;
+}
+
+button { 
+    grid-column: 1 / -1; 
+    padding: 11px; 
+    background: #38479e; 
+    color: white; 
+    border: none; 
+    border-radius: 5px; 
+    cursor: pointer;
+    font-size: 15px;
+    border-radius: 15px;
+    width: 100%;
+}
+
+h2 {
+    text-align: center;
+    color: black;
+}
+
+button:hover { 
+    background: #38489e;
+}

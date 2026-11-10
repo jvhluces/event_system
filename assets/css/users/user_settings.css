@@ -1,0 +1,1222 @@
+:root {
+    --settings-sidebar-width: 260px;
+    --settings-navy: #17345d;
+    --settings-navy-dark: #102746;
+    --settings-blue: #2458a6;
+    --settings-text: #203653;
+    --settings-muted: #71819a;
+    --settings-border: #e8edf4;
+    --settings-background: #f5f7fb;
+    --settings-shadow: 0 8px 28px rgba(28, 52, 86, .045);
+}
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    min-height: 100%;
+    scroll-behavior: smooth;
+}
+
+body.audience-settings-page {
+    min-height: 100vh;
+    margin: 0;
+    overflow-x: hidden;
+    background: var(--settings-background);
+    color: var(--settings-text);
+    font-family: Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
+}
+
+.audience-settings-page button,
+.audience-settings-page input,
+.audience-settings-page select,
+.audience-settings-page textarea {
+    font: inherit;
+}
+
+.audience-settings-page a {
+    -webkit-tap-highlight-color: transparent;
+}
+
+.audience-settings-page .sidebar {
+    position: fixed;
+    inset: 0 auto 0 0;
+    z-index: 1045;
+    display: flex;
+    width: var(--settings-sidebar-width);
+    height: 100vh;
+    height: 100dvh;
+    flex-direction: column;
+    overflow-x: hidden;
+    overflow-y: auto;
+    border-right: 1px solid rgba(255, 255, 255, .06);
+    background: linear-gradient(180deg, var(--settings-navy-dark), #132f52);
+    color: #fff;
+    scrollbar-color: #405a7a transparent;
+    scrollbar-width: thin;
+    transition: transform .25s ease, visibility .25s ease;
+}
+
+.audience-settings-page .sidebar::-webkit-scrollbar {
+    width: 5px;
+}
+
+.audience-settings-page .sidebar::-webkit-scrollbar-thumb {
+    border-radius: 20px;
+    background: #405a7a;
+}
+
+.audience-settings-page .audience-sidebar-header {
+    display: flex;
+    min-height: 76px;
+    flex-shrink: 0;
+    align-items: center;
+    padding: 0 25px;
+    border-bottom: 1px solid rgba(255, 255, 255, .08);
+}
+
+.audience-settings-page .audience-sidebar-brand,
+.audience-settings-page .audience-sidebar-brand:hover {
+    display: flex;
+    align-items: center;
+    gap: 11px;
+    color: #fff;
+    font-size: 21px;
+    font-weight: 750;
+    letter-spacing: -.02em;
+    text-decoration: none;
+}
+
+.audience-settings-page .audience-sidebar-brand i {
+    color: #fff;
+    font-size: 23px;
+}
+
+.audience-settings-page .sidebar-profile.audience-sidebar-profile {
+    display: flex;
+    min-height: 88px;
+    flex-shrink: 0;
+    align-items: center;
+    gap: 12px;
+    padding: 17px 23px;
+    border-bottom: 1px solid rgba(255, 255, 255, .08);
+    background: transparent;
+    text-align: left;
+}
+
+.audience-settings-page .audience-sidebar-avatar {
+    width: 47px;
+    height: 47px;
+    flex: 0 0 47px;
+    overflow: hidden;
+    border: 2px solid rgba(255, 255, 255, .78);
+    border-radius: 50%;
+    background: #315fa8;
+}
+
+.audience-settings-page .audience-sidebar-avatar img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.audience-settings-page .audience-sidebar-info {
+    min-width: 0;
+}
+
+.audience-settings-page .sidebar-profile-name {
+    overflow: hidden;
+    color: #fff;
+    font-size: 14px;
+    font-weight: 650;
+    line-height: 1.3;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.audience-settings-page .sidebar-profile-role {
+    margin-top: 3px;
+    color: rgba(255, 255, 255, .66);
+    font-size: 12px;
+}
+
+.audience-settings-page .sidebar-section-title {
+    padding: 17px 25px 7px;
+    color: rgba(255, 255, 255, .45);
+    font-size: 10px;
+    font-weight: 750;
+    letter-spacing: .12em;
+    text-transform: uppercase;
+}
+
+.audience-settings-page .sidebar-menu {
+    padding: 0 14px;
+}
+
+.audience-settings-page .sidebar-menu a,
+.audience-settings-page .logout-section a {
+    display: flex;
+    min-height: 44px;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 4px;
+    padding: 10px 13px;
+    border-radius: 10px;
+    color: rgba(255, 255, 255, .8);
+    font-size: 13px;
+    font-weight: 500;
+    text-decoration: none;
+    transition: background .2s ease, color .2s ease, transform .2s ease;
+}
+
+.audience-settings-page .sidebar-menu a i,
+.audience-settings-page .logout-section a i {
+    width: 20px;
+    flex: 0 0 20px;
+    color: rgba(235, 242, 255, .8);
+    font-size: 17px;
+    text-align: center;
+}
+
+.audience-settings-page .sidebar-menu a:hover,
+.audience-settings-page .logout-section a:hover {
+    transform: translateX(2px);
+    background: rgba(255, 255, 255, .09);
+    color: #fff;
+}
+
+.audience-settings-page .sidebar-menu a.active {
+    background: linear-gradient(100deg, rgba(91, 132, 194, .44), rgba(91, 132, 194, .22));
+    box-shadow: inset 0 0 0 1px rgba(255, 255, 255, .05);
+    color: #fff;
+    font-weight: 650;
+}
+
+.audience-settings-page .sidebar-menu a.active i {
+    color: #fff;
+}
+
+.audience-settings-page .sidebar-divider {
+    height: 1px;
+    margin: 12px 25px;
+    background: rgba(255, 255, 255, .14);
+}
+
+.audience-settings-page .logout-section {
+    margin-top: auto;
+    padding: 12px 14px 18px;
+}
+
+.audience-settings-page .logout-section a {
+    margin: 0;
+}
+
+.audience-settings-page .sidebar-overlay {
+    display: none;
+}
+
+.audience-settings-page .profile-topbar {
+    position: relative;
+    z-index: 1020;
+    display: flex;
+    width: calc(100% - var(--settings-sidebar-width));
+    min-height: 76px;
+    align-items: center;
+    justify-content: space-between;
+    gap: 18px;
+    margin-left: var(--settings-sidebar-width);
+    padding: 12px 32px;
+    border-bottom: 1px solid var(--settings-border);
+    background: rgba(255, 255, 255, .97);
+    box-shadow: 0 3px 18px rgba(23, 52, 93, .035);
+    backdrop-filter: blur(16px);
+}
+
+.audience-settings-page .topbar-left {
+    display: flex;
+    min-width: 0;
+    align-items: center;
+    gap: 14px;
+}
+
+.audience-settings-page .topbar-title {
+    color: var(--settings-navy);
+    font-size: 17px;
+    font-weight: 800;
+    line-height: 1.4;
+}
+
+.audience-settings-page .topbar-subtitle {
+    margin-top: 2px;
+    color: #8290a5;
+    font-size: 11px;
+}
+
+.audience-settings-page .profile-menu-toggle {
+    display: none;
+    width: 40px;
+    height: 40px;
+    flex: 0 0 40px;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid #e4eaf3;
+    border-radius: 10px;
+    background: #f4f7fc;
+    color: #254a7b;
+    font-size: 22px;
+    cursor: pointer;
+}
+
+.audience-settings-page .profile-menu-toggle:hover {
+    background: #eaf0f9;
+}
+
+.audience-settings-page .topbar-account {
+    display: flex;
+    min-width: 0;
+    align-items: center;
+    gap: 10px;
+}
+
+.audience-settings-page .topbar-account > img {
+    width: 41px;
+    height: 41px;
+    flex: 0 0 41px;
+    border: 2px solid #e4ebf6;
+    border-radius: 12px;
+    background: #edf4ff;
+    object-fit: cover;
+}
+
+.audience-settings-page .topbar-account-copy {
+    display: flex;
+    min-width: 0;
+    flex-direction: column;
+}
+
+.audience-settings-page .topbar-account-copy strong {
+    max-width: 190px;
+    overflow: hidden;
+    color: var(--settings-text);
+    font-size: 12px;
+    font-weight: 750;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.audience-settings-page .topbar-account-copy span {
+    margin-top: 3px;
+    color: #8290a5;
+    font-size: 11px;
+}
+
+.audience-settings-page .profile-main-content {
+    width: calc(100% - var(--settings-sidebar-width));
+    min-width: 0;
+    min-height: calc(100vh - 76px);
+    margin-left: var(--settings-sidebar-width);
+    padding: 32px clamp(20px, 3vw, 42px) 28px;
+    background:
+        radial-gradient(circle at 96% 0%, rgba(216, 229, 250, .45), transparent 26%),
+        var(--settings-background);
+}
+
+.audience-settings-page .profile-content-inner {
+    width: 100%;
+    max-width: 1050px;
+    min-width: 0;
+    margin: 0 auto;
+}
+
+.audience-settings-page .profile-page-heading {
+    margin: 0 0 24px;
+}
+
+.audience-settings-page .profile-eyebrow {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    margin-bottom: 9px;
+    color: #456b9f;
+    font-size: 10px;
+    font-weight: 800;
+    letter-spacing: .13em;
+}
+
+.audience-settings-page .profile-page-heading h1 {
+    margin: 0 0 7px;
+    color: #172f52;
+    font-size: clamp(25px, 2.4vw, 34px);
+    font-weight: 800;
+    letter-spacing: -.035em;
+    line-height: 1.2;
+}
+
+.audience-settings-page .profile-page-heading p {
+    max-width: 620px;
+    margin: 0;
+    color: var(--settings-muted);
+    font-size: 13px;
+    line-height: 1.65;
+}
+
+.audience-settings-page .alert {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    margin: 0 0 16px;
+    padding: 13px 15px;
+    border: 1px solid;
+    border-radius: 11px;
+    box-shadow: none !important;
+    font-size: 12px;
+    line-height: 1.6;
+}
+
+.audience-settings-page .alert-success {
+    border-color: #d8f0e2;
+    background: #f0fbf5;
+    color: #237449;
+}
+
+.audience-settings-page .alert-danger {
+    border-color: #f0d1cf;
+    background: #fff5f4;
+    color: #a83e3b;
+}
+
+.audience-settings-page .settings-card {
+    display: grid;
+    gap: 16px;
+    overflow: visible;
+    background: transparent;
+}
+
+.audience-settings-page .settings-section {
+    min-width: 0;
+    padding: 23px 25px;
+    border: 1px solid var(--settings-border);
+    border-radius: 15px;
+    background: #fff;
+    box-shadow: var(--settings-shadow);
+}
+
+.audience-settings-page .section-title {
+    display: flex;
+    align-items: center;
+    gap: 9px;
+    margin: 0 0 6px;
+    color: var(--settings-navy);
+    font-size: 16px;
+    font-weight: 750;
+}
+
+.audience-settings-page .section-title i {
+    display: inline-grid;
+    width: 34px;
+    height: 34px;
+    flex: 0 0 34px;
+    place-items: center;
+    border-radius: 10px;
+    background: #edf3fc;
+    color: var(--settings-blue);
+    font-size: 16px;
+}
+
+.audience-settings-page .section-description {
+    margin: 0 0 17px;
+    color: var(--settings-muted);
+    font-size: 12px;
+    line-height: 1.6;
+}
+
+.audience-settings-page .profile-preview {
+    display: flex;
+    align-items: center;
+    gap: 13px;
+    padding: 13px;
+    border: 1px solid #e8edf4;
+    border-radius: 12px;
+    background: #f8fafd;
+}
+
+.audience-settings-page .profile-small {
+    width: 54px;
+    height: 54px;
+    flex: 0 0 54px;
+    border: 2px solid #dce7f8;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.audience-settings-page .profile-preview-name {
+    color: var(--settings-text);
+    font-size: 14px;
+    font-weight: 750;
+}
+
+.audience-settings-page .form-label {
+    margin-bottom: 7px;
+    color: #405574;
+    font-size: 12px;
+    font-weight: 650;
+}
+
+.audience-settings-page .form-control,
+.audience-settings-page .form-select {
+    min-height: 43px;
+    border: 1px solid #dce4ef;
+    border-radius: 9px;
+    background-color: #fff;
+    color: var(--settings-text);
+    font-size: 13px;
+}
+
+.audience-settings-page textarea.form-control {
+    min-height: auto;
+}
+
+.audience-settings-page .form-control:focus,
+.audience-settings-page .form-select:focus {
+    border-color: #83a7e5;
+    box-shadow: 0 0 0 .2rem rgba(53, 105, 200, .12);
+}
+
+.audience-settings-page .form-text {
+    color: var(--settings-muted);
+    font-size: 11px;
+}
+
+.audience-settings-page .settings-section .btn {
+    min-height: 40px;
+    border-radius: 9px;
+    font-size: 12px;
+    font-weight: 700;
+}
+
+.audience-settings-page .settings-section .btn-primary {
+    border-color: var(--settings-blue);
+    background: var(--settings-blue);
+}
+
+.audience-settings-page .settings-section .btn-primary:hover {
+    border-color: #194886;
+    background: #194886;
+}
+
+.audience-settings-page .settings-section .btn-outline-primary {
+    border-color: #cbd9ed;
+    color: var(--settings-blue);
+}
+
+.audience-settings-page .settings-section .btn-outline-primary:hover {
+    border-color: var(--settings-blue);
+    background: var(--settings-blue);
+    color: #fff;
+}
+
+.audience-settings-page .status-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    padding: 8px 12px;
+    border: 1px solid #d8f0e2;
+    border-radius: 999px;
+    background: #f0fbf5;
+    color: #237449;
+    font-size: 12px;
+    font-weight: 750;
+}
+
+.audience-settings-page .status-deactivated {
+    border-color: #f0d1cf;
+    background: #fff5f4;
+    color: #a83e3b;
+}
+
+.audience-settings-page .danger-section {
+    border-color: #f0d9d7;
+    background: #fffdfd;
+}
+
+.audience-settings-page .danger-title {
+    display: flex;
+    align-items: center;
+    gap: 9px;
+    margin: 0 0 6px;
+    color: #a83e3b;
+    font-size: 16px;
+    font-weight: 750;
+}
+
+.audience-settings-page .danger-description {
+    margin: 0 0 18px;
+    color: var(--settings-muted);
+    font-size: 12px;
+    line-height: 1.6;
+}
+
+.audience-settings-page .danger-section form {
+    display: inline-flex;
+    margin: 0 8px 0 0 !important;
+}
+
+.audience-settings-page .danger-button {
+    width: auto;
+    min-width: 170px;
+}
+
+.audience-settings-page .modal-content {
+    border: 1px solid var(--settings-border);
+    border-radius: 15px;
+    color: var(--settings-text);
+}
+
+.audience-settings-page .modal-header,
+.audience-settings-page .modal-footer {
+    border-color: var(--settings-border);
+}
+
+.audience-settings-page .modal-title {
+    color: var(--settings-navy);
+    font-weight: 750;
+}
+
+.audience-settings-page .modal-body .alert {
+    display: flex;
+}
+
+@media (max-width: 991.98px) {
+    .audience-settings-page .sidebar {
+        width: min(290px, 86vw);
+        transform: translateX(-105%);
+        visibility: hidden;
+    }
+
+    .audience-settings-page .sidebar.show {
+        transform: translateX(0);
+        visibility: visible;
+    }
+
+    .audience-settings-page .sidebar-overlay {
+        position: fixed;
+        inset: 0;
+        z-index: 1040;
+        display: block;
+        visibility: hidden;
+        background: rgba(10, 24, 44, .48);
+        opacity: 0;
+        pointer-events: none;
+        transition: opacity .25s ease, visibility .25s ease;
+    }
+
+    .audience-settings-page .sidebar-overlay.show {
+        visibility: visible;
+        opacity: 1;
+        pointer-events: auto;
+    }
+
+    .audience-settings-page .profile-menu-toggle {
+        display: inline-flex;
+    }
+
+    .audience-settings-page .profile-topbar,
+    .audience-settings-page .profile-main-content {
+        width: 100%;
+        margin-left: 0;
+    }
+
+    .audience-settings-page .profile-topbar {
+        min-height: 70px;
+        padding: 12px 24px;
+    }
+}
+
+.audience-settings-page .sidebar {
+    width: 262px;
+    background: linear-gradient(155deg, #112b4d 0%, #0e2341 100%);
+}
+
+.audience-settings-page .close-sidebar {
+    display: none;
+}
+
+.audience-settings-page .audience-sidebar-header {
+    min-height: 78px;
+    padding: 0 26px;
+}
+
+.audience-settings-page .audience-sidebar-brand,
+.audience-settings-page .audience-sidebar-brand:hover {
+    width: 100%;
+}
+
+.audience-settings-page .audience-sidebar-brand img {
+    display: block;
+    width: 160px;
+    max-width: 100%;
+    max-height: 44px;
+    height: auto;
+    object-fit: contain;
+    object-position: left center;
+}
+
+.audience-settings-page .sidebar-profile.audience-sidebar-profile {
+    min-height: 96px;
+    padding: 19px 25px;
+}
+
+.audience-settings-page .audience-sidebar-avatar {
+    width: 47px;
+    height: 47px;
+    flex: 0 0 47px;
+    border-radius: 50%;
+}
+
+.audience-settings-page .sidebar-menu {
+    flex: 1;
+    padding: 8px 15px 15px;
+}
+
+.audience-settings-page .sidebar-label {
+    padding: 10px 12px 7px;
+    color: rgba(255, 255, 255, .45);
+    font-size: 10px;
+    font-weight: 750;
+    letter-spacing: .12em;
+    text-transform: uppercase;
+}
+
+.audience-settings-page .sidebar-menu a {
+    min-height: 47px;
+    gap: 14px;
+    margin: 0 0 4px;
+    padding: 11px 14px;
+    border-radius: 11px;
+    color: rgba(255, 255, 255, .82);
+    font-size: 14px;
+}
+
+.audience-settings-page .sidebar-menu a i {
+    width: 22px;
+    flex: 0 0 22px;
+    color: rgba(235, 242, 255, .8);
+    font-size: 18px;
+}
+
+.audience-settings-page .sidebar-menu a:hover {
+    transform: translateX(2px);
+    background: rgba(255, 255, 255, .09);
+    color: #fff;
+}
+
+.audience-settings-page .sidebar-menu a.active {
+    background: linear-gradient(100deg, rgba(91, 132, 194, .44), rgba(91, 132, 194, .22));
+    color: #fff;
+    font-weight: 650;
+    box-shadow: inset 0 0 0 1px rgba(255, 255, 255, .05);
+}
+
+.audience-settings-page .sidebar-menu a.active i {
+    color: #fff;
+}
+
+.audience-settings-page .sidebar-menu .logout-link {
+    color: rgba(255, 255, 255, .82);
+}
+
+.audience-settings-page .sidebar-menu .logout-link:hover {
+    background: rgba(239, 68, 68, .13);
+    color: #fff;
+}
+
+.audience-settings-page .sidebar-footer {
+    padding: 13px 26px 30px;
+    color: rgba(255, 255, 255, .67);
+    font-size: 12px;
+    line-height: 1.6;
+}
+
+.audience-settings-page .sidebar-footer p {
+    margin: 0;
+    color: inherit;
+}
+
+.audience-settings-page .sidebar-footer-line {
+    width: 43px;
+    height: 1px;
+    margin-bottom: 16px;
+    background: rgba(255, 255, 255, .45);
+}
+
+@media (max-width: 991.98px) {
+    .audience-settings-page .sidebar {
+        width: min(262px, 86vw);
+    }
+
+    .audience-settings-page .close-sidebar {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 36px;
+        height: 36px;
+        flex: 0 0 36px;
+        border: 0;
+        border-radius: 9px;
+        background: rgba(255, 255, 255, .09);
+        color: #fff;
+    }
+
+    .audience-settings-page .profile-main-content {
+        min-height: calc(100vh - 70px);
+        padding: 27px 24px 24px;
+    }
+}
+
+@media (max-width: 767.98px) {
+    .audience-settings-page .profile-topbar {
+        min-height: 65px;
+        gap: 10px;
+        padding: 10px 16px;
+    }
+
+    .audience-settings-page .topbar-left {
+        gap: 10px;
+    }
+
+    .audience-settings-page .topbar-title {
+        font-size: 14px;
+    }
+
+    .audience-settings-page .topbar-subtitle {
+        font-size: 10px;
+    }
+
+    .audience-settings-page .profile-menu-toggle {
+        width: 37px;
+        height: 37px;
+        flex-basis: 37px;
+    }
+
+    .audience-settings-page .topbar-account > img {
+        width: 36px;
+        height: 36px;
+        flex-basis: 36px;
+    }
+
+    .audience-settings-page .topbar-account-copy {
+        display: none;
+    }
+
+    .audience-settings-page .profile-main-content {
+        min-height: calc(100vh - 65px);
+        padding: 23px 17px 20px;
+    }
+
+    .audience-settings-page .profile-page-heading {
+        margin-bottom: 19px;
+    }
+
+    .audience-settings-page .profile-page-heading h1 {
+        font-size: clamp(24px, 6vw, 30px);
+    }
+
+    .audience-settings-page .settings-card {
+        gap: 12px;
+    }
+
+    .audience-settings-page .settings-section {
+        padding: 19px 17px;
+        border-radius: 14px;
+    }
+}
+
+@media (max-width: 420px) {
+    .audience-settings-page .profile-topbar {
+        padding: 10px 12px;
+    }
+
+    .audience-settings-page .profile-main-content {
+        padding: 19px 12px 16px;
+    }
+
+    .audience-settings-page .settings-section {
+        padding: 17px 14px;
+    }
+
+    .audience-settings-page .danger-section form {
+        display: flex;
+        margin: 0 0 9px !important;
+    }
+
+    .audience-settings-page .danger-button {
+        width: 100%;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .audience-settings-page *,
+    .audience-settings-page *::before,
+    .audience-settings-page *::after {
+        scroll-behavior: auto !important;
+        transition-duration: .01ms !important;
+        animation-duration: .01ms !important;
+        animation-iteration-count: 1 !important;
+    }
+}
+
+
+/* =========================================================
+   EVENT MS — LAYOUT FIX (AUDIENCE PAGES)
+   I-load ito PINAKAHULI sa <head> ng:
+   user.php, user_profile.php, user_settings.php,
+   help_user.php, view_event.php
+
+   Lapad at espasyo lang ang binabago. Walang kulay/font.
+   Ang organizer-view ng view_event.php ay hindi ginagalaw.
+========================================================= */
+
+:root {
+    --sb-w: 210px;      /* lapad ng sidebar */
+    --pad-y: 20px;      /* padding taas/baba ng content */
+    --pad-x: 24px;      /* padding kaliwa/kanan ng content */
+}
+
+/* Para sundan ng profile at settings ang parehong lapad */
+body.audience-profile-page,
+body.audience-settings-page {
+    --profile-sidebar-width: var(--sb-w);
+    --settings-sidebar-width: var(--sb-w);
+}
+
+/* =========================================================
+   DESKTOP / TABLET (768px pataas)
+========================================================= */
+@media (min-width: 768px) {
+
+    /* ---------- 1. SIDEBAR 210px ---------- */
+    body:not(.organizer-view) .sidebar {
+        width: var(--sb-w) !important;
+        max-width: var(--sb-w) !important;
+        transform: none !important;
+        visibility: visible !important;
+    }
+
+    /* Siksik na panloob para magkasya sa 210px */
+    body:not(.organizer-view) .sidebar .sidebar-header,
+    body:not(.organizer-view) .sidebar .audience-sidebar-header {
+        padding: 0 16px !important;
+    }
+
+    body:not(.organizer-view) .sidebar .sidebar-header .brand img {
+        width: 140px !important;
+        max-width: 100% !important;
+    }
+
+    body:not(.organizer-view) .sidebar .sidebar-profile,
+    body:not(.organizer-view) .sidebar .audience-sidebar-profile {
+        padding: 16px !important;
+        gap: 10px !important;
+        min-height: 0 !important;
+    }
+
+    body:not(.organizer-view) .sidebar .sidebar-avatar,
+    body:not(.organizer-view) .sidebar .audience-sidebar-avatar {
+        width: 42px !important;
+        height: 42px !important;
+        min-width: 42px !important;
+        min-height: 42px !important;
+        max-width: 42px !important;
+        max-height: 42px !important;
+        flex: 0 0 42px !important;
+    }
+
+    body:not(.organizer-view) .sidebar .sidebar-menu {
+        padding: 6px 10px 12px !important;
+    }
+
+    body:not(.organizer-view) .sidebar .sidebar-menu a {
+        gap: 11px !important;
+        padding: 10px 12px !important;
+        min-height: 44px !important;
+    }
+
+    body:not(.organizer-view) .sidebar .sidebar-label,
+    body:not(.organizer-view) .sidebar .sidebar-section-title,
+    body:not(.organizer-view) .sidebar .menu-label {
+        padding-left: 12px !important;
+        padding-right: 12px !important;
+    }
+
+    body:not(.organizer-view) .sidebar .sidebar-footer {
+        padding-left: 18px !important;
+        padding-right: 14px !important;
+    }
+
+    /* Walang hamburger / close button / overlay sa desktop */
+    body:not(.organizer-view) .menu-btn,
+    body:not(.organizer-view) .mobile-menu-btn,
+    body:not(.organizer-view) #sidebarToggle,
+    body:not(.organizer-view) .profile-menu-toggle,
+    body:not(.organizer-view) .close-sidebar,
+    body:not(.organizer-view) .profile-mobile-close {
+        display: none !important;
+    }
+
+    body:not(.organizer-view) .sidebar-overlay,
+    body:not(.organizer-view) .overlay {
+        display: none !important;
+    }
+
+    /* ---------- 2. MAIN CONTENT: 100% NG NATITIRANG LAPAD ---------- */
+
+    /* user.php (may .main-area wrapper) */
+    .main-area {
+        margin-left: var(--sb-w) !important;
+        width: calc(100% - var(--sb-w)) !important;
+        max-width: none !important;
+        min-width: 0;
+    }
+
+    .main-area > .top-navbar,
+    .main-area > .main-content {
+        margin-left: 0 !important;
+        width: 100% !important;
+        max-width: none !important;
+    }
+
+    /* help_user.php at view_event.php (direct child ng body) */
+    body:not(.organizer-view) > .top-navbar,
+    body:not(.organizer-view) > .main-content {
+        margin-left: var(--sb-w) !important;
+        width: calc(100% - var(--sb-w)) !important;
+        max-width: none !important;
+        min-width: 0;
+    }
+
+    /* user_profile.php at user_settings.php */
+    body.audience-profile-page .profile-topbar,
+    body.audience-settings-page .profile-topbar,
+    body.audience-profile-page .profile-main-content,
+    body.audience-settings-page .profile-main-content {
+        margin-left: var(--sb-w) !important;
+        width: calc(100% - var(--sb-w)) !important;
+        max-width: none !important;
+        min-width: 0;
+    }
+
+    /* Padding ng content: 20px 24px */
+    .main-content,
+    body.audience-profile-page .profile-main-content,
+    body.audience-settings-page .profile-main-content {
+        padding: var(--pad-y) var(--pad-x) !important;
+    }
+
+    /* Topbar: parehong gilid para pantay sa content */
+    .top-navbar,
+    body.audience-profile-page .profile-topbar,
+    body.audience-settings-page .profile-topbar {
+        padding-left: var(--pad-x) !important;
+        padding-right: var(--pad-x) !important;
+    }
+}
+
+/* =========================================================
+   CONTAINERS / WRAPPERS — ALISIN ANG MAX-WIDTH (lahat ng laki)
+========================================================= */
+
+/* user.php */
+.content-area,
+.dashboard-section {
+    width: 100% !important;
+    max-width: 100% !important;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+}
+
+/* profile + settings */
+body.audience-profile-page .profile-content-inner,
+body.audience-settings-page .profile-content-inner {
+    width: 100% !important;
+    max-width: 100% !important;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+}
+
+/* help_user.php — Bootstrap .container ay may max-width kaya sumisikip */
+body:not(.organizer-view) .main-content .container,
+body:not(.organizer-view) .main-content > .container,
+body:not(.organizer-view) .main-content > .hero > .container,
+body:not(.organizer-view) .main-content > .dashboard-section.container {
+    width: 100% !important;
+    max-width: 100% !important;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+}
+
+body:not(.organizer-view) .main-content > .hero {
+    width: 100% !important;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+}
+
+/* view_event.php */
+body.audience-view .container-custom,
+body.audience-view .main-content > .container-custom,
+body.audience-view .main-container {
+    width: 100% !important;
+    max-width: 100% !important;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+}
+
+body.audience-view .container-custom {
+    margin-top: 0 !important;
+    margin-bottom: 0 !important;
+}
+
+/* =========================================================
+   PROFILE / SETTINGS / HELP — CARDS AT FORMS, FULL WIDTH
+========================================================= */
+
+body.audience-profile-page .profile-panel,
+body.audience-profile-page .profile-overview-card,
+body.audience-settings-page .settings-card,
+body.audience-settings-page .profile-panel,
+body.audience-settings-page section,
+body.audience-view .details-card,
+.help-search-card,
+.faq-wrapper,
+.guide-card {
+    width: 100% !important;
+    max-width: 100% !important;
+}
+
+body.audience-profile-page .form-control,
+body.audience-profile-page .form-select,
+body.audience-profile-page input:not([type="checkbox"]):not([type="radio"]):not([type="file"]),
+body.audience-profile-page textarea,
+body.audience-settings-page .form-control,
+body.audience-settings-page .form-select,
+body.audience-settings-page input:not([type="checkbox"]):not([type="radio"]):not([type="file"]),
+body.audience-settings-page textarea,
+.help-search-card #helpSearch {
+    width: 100% !important;
+    max-width: 100% !important;
+}
+
+/* =========================================================
+   3. EVENT CARDS (user.php): 3 sa laptop, 2 sa tablet
+========================================================= */
+
+#events.row,
+.main-content .row.g-4 {
+    --bs-gutter-x: 16px;
+    --bs-gutter-y: 16px;
+}
+
+/* Pantay ang taas at lapad ng bawat card */
+#events > [class*="col-"],
+.main-content .row.g-4 > [class*="col-"] {
+    display: flex;
+}
+
+#events .event-card,
+.main-content .row.g-4 .event-card {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+#events .event-card-body,
+.main-content .row.g-4 .event-card-body {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Laging nasa ibaba ang mga button */
+#events .event-actions,
+.main-content .row.g-4 .event-actions {
+    margin-top: auto;
+}
+
+/* =========================================================
+   5. MOBILE (767px pababa)
+   Sidebar buong lapad (drawer), walang margin-left
+========================================================= */
+@media (max-width: 767.98px) {
+
+    body:not(.organizer-view) .sidebar {
+        width: 100% !important;
+        max-width: 100% !important;
+        transform: translateX(-100%) !important;
+        visibility: hidden !important;
+    }
+
+    body:not(.organizer-view) .sidebar.active,
+    body:not(.organizer-view) .sidebar.open,
+    body:not(.organizer-view) .sidebar.show,
+    body:not(.organizer-view) .sidebar.sidebar-open {
+        transform: translateX(0) !important;
+        visibility: visible !important;
+    }
+
+    /* Hamburger at close button */
+    body:not(.organizer-view) .menu-btn,
+    body:not(.organizer-view) .mobile-menu-btn,
+    body:not(.organizer-view) #sidebarToggle,
+    body:not(.organizer-view) .profile-menu-toggle {
+        display: inline-flex !important;
+    }
+
+    body:not(.organizer-view) .close-sidebar,
+    body:not(.organizer-view) .profile-mobile-close {
+        display: inline-flex !important;
+    }
+
+    /* Walang margin-left, buong lapad */
+    .main-area,
+    .main-area > .top-navbar,
+    .main-area > .main-content,
+    body:not(.organizer-view) > .top-navbar,
+    body:not(.organizer-view) > .main-content,
+    body.audience-profile-page .profile-topbar,
+    body.audience-settings-page .profile-topbar,
+    body.audience-profile-page .profile-main-content,
+    body.audience-settings-page .profile-main-content {
+        margin-left: 0 !important;
+        width: 100% !important;
+        max-width: 100% !important;
+    }
+
+    .main-content,
+    body.audience-profile-page .profile-main-content,
+    body.audience-settings-page .profile-main-content {
+        padding: 16px 14px !important;
+    }
+
+    .top-navbar,
+    body.audience-profile-page .profile-topbar,
+    body.audience-settings-page .profile-topbar {
+        padding-left: 14px !important;
+        padding-right: 14px !important;
+    }
+
+    /* 1 card kada row sa phone */
+    #events > [class*="col-"] {
+        width: 100%;
+    }
+}
+
+/* Tablet 768–1199px: 2 cards per row sa events grid */
+@media (min-width: 768px) and (max-width: 1199.98px) {
+    #events > [class*="col-"] {
+        width: 50%;
+    }
+}

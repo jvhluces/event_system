@@ -1,0 +1,147 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+
+    margin: 0;
+
+    background: #f4f6f9;
+
+    font-family: 'Segoe UI', sans-serif;
+
+}
+
+
+
+.edit-page {
+
+    min-height: 100vh;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: flex-start;
+
+    padding: 70px 20px;
+
+}
+
+
+
+.edit-card {
+
+    width: 100%;
+
+    max-width: 700px;
+
+    background: white;
+
+    border-radius: 18px;
+
+    padding: 35px 40px;
+
+    box-shadow: 0 5px 20px rgba(0,0,0,.08);
+
+}
+
+
+.edit-profile-image {
+
+    width: 120px;
+
+    height: 120px;
+
+    border-radius: 50%;
+
+    object-fit: cover;
+
+    border: 4px solid #2563eb;
+
+    display: block;
+
+    margin: 0 auto 18px;
+
+}
+
+
+
+.edit-title {
+
+    text-align: center;
+
+    font-size: 28px;
+
+    font-weight: 700;
+
+    margin-bottom: 30px;
+
+}
+.form-label {
+
+    font-weight: 600;
+
+}
+
+.form-control {
+
+    border-radius: 8px;
+
+    padding: 10px 12px;
+
+}
+
+.form-control:focus {
+
+    border-color: #2563eb;
+
+    box-shadow: 0 0 0 .15rem rgba(37,99,235,.15);
+
+}
+
+.form-buttons {
+
+    display: flex;
+
+    gap: 10px;
+
+    margin-top: 25px;
+
+}
+
+.cancel-btn,
+.save-btn {
+
+    flex: 1;
+
+    padding: 11px;
+
+    border-radius: 8px;
+
+    font-weight: 600;
+
+}
+
+
+@media (max-width: 576px) {
+
+    .edit-page {
+
+        padding: 30px 15px;
+
+    }
+
+    .edit-card {
+
+        padding: 28px 20px;
+
+    }
+
+    .edit-title {
+
+        font-size: 24px;
+
+    }
+
+}

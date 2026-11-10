@@ -1,0 +1,25 @@
+.notification-menu{position:relative;display:inline-flex;align-items:center}
+.notification-toggle{position:relative;display:grid;width:40px;height:40px;place-items:center;border:1px solid #e3eaf2;border-radius:50%;background:#fff;color:#355779;font-size:18px;cursor:pointer}
+.notification-toggle:hover{background:#f2f6fb;color:#173b73}
+.notification-badge{position:absolute;top:-4px;right:-5px;display:grid;min-width:18px;height:18px;place-items:center;padding:0 4px;border:2px solid #fff;border-radius:99px;background:#dc3545;color:#fff;font-size:10px;font-weight:700}
+.notification-panel{position:absolute;top:calc(100% + 10px);right:0;z-index:1100;width:min(360px,calc(100vw - 28px));max-height:430px;overflow:auto;border:1px solid #e2e8f0;border-radius:14px;background:#fff;box-shadow:0 14px 40px rgba(20,40,65,.18);color:#294565}
+.notification-panel[hidden]{display:none}
+.notification-panel-header{position:sticky;top:0;display:flex;align-items:center;justify-content:space-between;gap:8px;padding:14px 16px;border-bottom:1px solid #edf1f5;background:#fff}
+.notification-panel-header h2{margin:0;color:#17365f;font-size:15px;font-weight:700}
+.notification-mark-all,.notification-mark-read{border:0;background:transparent;color:#2d60ad;cursor:pointer}
+.notification-mark-all{font-size:12px}
+.notification-message{margin:0;padding:20px;color:#718096;font-size:13px;text-align:center}
+.notification-error{color:#b42318}
+.notification-list{margin:0;padding:0;list-style:none}
+.notification-item{display:flex;align-items:center;gap:8px;padding:12px 14px;border-bottom:1px solid #f0f3f7}
+.notification-item:last-child{border-bottom:0}
+.notification-item.unread{background:#f3f7fc}
+.notification-item-content{min-width:0;flex:1}
+.notification-item-content p,.notification-open{display:block;width:100%;margin:0 0 5px;padding:0;border:0;background:transparent;color:#294565;font:inherit;font-size:13px;line-height:1.45;text-align:left;overflow-wrap:anywhere}
+.notification-open{cursor:pointer}
+.notification-open:hover{color:#1f5b9c}
+.notification-item-content time{color:#91a0b2;font-size:11px}
+.notification-item form{display:inline}
+.notification-mark-read{padding:4px;font-size:18px}
+.admin-notification-topbar{position:fixed;top:17px;right:28px;z-index:1090}
+@media(max-width:991.98px){.admin-notification-topbar{top:14px;right:18px}}

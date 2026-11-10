@@ -1,0 +1,99 @@
+body {
+            min-height: 100vh;
+            background: #f4f6f9;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: Arial, sans-serif;
+        }
+
+        .login-wrapper {
+            width: 100%;
+            max-width: 420px;
+            padding: 20px;
+        }
+
+        .login-card {
+            border: none;
+            border-radius: 16px;
+            overflow: hidden;
+            background: #ffffff;
+        }
+
+        .login-header {
+            background: #2563eb;
+            color: #ffffff;
+            padding: 26px 20px;
+            text-align: center;
+        }
+
+        .login-header .admin-icon {
+            width: 58px;
+            height: 58px;
+            margin: 0 auto 12px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.18);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 28px;
+        }
+
+        .login-header h3 {
+            margin: 0;
+            font-weight: 700;
+        }
+
+        .login-header p {
+            margin: 7px 0 0;
+            font-size: 14px;
+            opacity: 0.9;
+        }
+
+        .login-body {
+            padding: 30px;
+        }
+
+        .form-label {
+            font-weight: 600;
+            color: #374151;
+        }
+
+        .form-control {
+            min-height: 46px;
+            border-radius: 10px;
+        }
+
+        .form-control:focus {
+            border-color: #2563eb;
+            box-shadow:
+                0 0 0 0.2rem
+                rgba(37, 99, 235, 0.15);
+        }
+
+        .login-btn {
+            min-height: 46px;
+            border-radius: 10px;
+            background: #2563eb;
+            border: none;
+            font-weight: 600;
+        }
+
+        .login-btn:hover {
+            background: #1d4ed8;
+        }
+
+        .admin-note {
+            margin-top: 18px;
+            padding: 10px 12px;
+            border-radius: 9px;
+            background: #f3f4f6;
+            color: #6b7280;
+            font-size: 12px;
+            text-align: center;
+        }
+
+        .alert {
+            border-radius: 10px;
+            font-size: 14px;
+        }
